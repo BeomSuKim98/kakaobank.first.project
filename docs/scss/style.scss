@@ -26,7 +26,7 @@ $site-width: 1200px;
 @mixin linkIcon-after() {
   content: "";
   display: inline-block;
-  background-image: url(https://kakaobank.com/static/images/web/svg_line_outlink.svg);
+  background-image: url(../img/svg_line_outlink.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 14px 14px;
@@ -149,7 +149,7 @@ $site-width: 1200px;
       &::after {
         content: "";
         display: inline-block;
-        background-image: url(https://www.kakaobank.com/static/images/web/svg_line_arrow_down.svg);
+        background-image: url(../img/svg_line_arrow_down.svg);
         background-repeat: no-repeat;
         background-size: 12px 12px;
         width: 15px;
@@ -657,87 +657,83 @@ $site-width: 1200px;
 
   .checkcard-swiper-wrap {
     position: relative;
-
+    height: auto;
     .swiper {
-      border: 5px dashed blue;
-      margin-top: 53px;
+      position: static;
+      width: 800px;
+      height: 500px;
+      margin-bottom: 120px;
 
-      .swiper-wrapper {
-        border: 3px solid red;
+      .swiper-slide {
+        height: auto;
+        transition: transform 0.5s;
 
-        .swiper-slide {
-          height: 233px;
-          transition: transform 0.5;
+        img {
+          height: 378px;
+          width: 240px;
+        }
 
-          &.swiper-slide-prev {
-            left: 67px;
-          }
+        &.swiper-slide-prev {
+          left: 78px;
+        }
 
-          &.swiper-slide-next {
-            right: 67px;
-          }
+        &.swiper-slide-next {
+          right: 78px;
+        }
 
-          &.swiper-slide-active {
-            transform: scale(1.2);
-            z-index: 1;
-          }
+        &.swiper-slide-active {
+          transform: scale(1.2);
+          z-index: 1;
         }
       }
-      .swiper-btn-wrap {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+    }
+
+    .swiper-btn-wrap {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+
+      @mixin checkbox-btn($url) {
+        content: "";
+        display: inline-block;
         width: 100%;
+        height: 100%;
+        background: url($url) no-repeat center;
+      }
 
-        @mixin checkbox-btn($url) {
-          content: "";
-          display: inline-block;
-          width: 100%;
-          height: 100%;
-          background: url($url) no-repeat center;
+      .swiper-button {
+        width: 80px;
+        height: 80px;
+        opacity: 0.7;
+
+        &:hover {
+          opacity: 1;
         }
 
-        .swiper-btn {
-          width: 70px;
-          height: 70px;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          cursor: pointer;
-          opacity: 0.7;
-
-          &:hover {
-            opacity: 1;
-          }
-
-          &-prev {
-            left: 105px;
-
-            &::after {
-              @incldue checkbox-btn("https://www.kakaobank.com/static/images/web/img-left.png");
-            }
-          }
-
-          &-next {
-            right: 65px;
-
-            &::after {
-              @include checkbox-btn(
-                "https://www.kakaobank.com/static/images/web/img-right.png"
-              );
-            }
-          }
-        }
-
-        &:last-child {
-          right: 20px;
+        &-prev {
+          left: 65px;
 
           &::after {
+            @include checkbox-btn(
+              "https://www.kakaobank.com/static/images/web/img-left.png"
+            );
+          }
+        }
+
+        &-next {
+          right: 65px;
+
+          &::after {
+            @include checkbox-btn(
+              "https://www.kakaobank.com/static/images/web/img-right.png"
+            );
           }
         }
       }
     }
   }
+
   // 스와이퍼 끝
 
   //IT 섹션 작업 시작
@@ -810,9 +806,11 @@ $site-width: 1200px;
   position: relative;
   font-size: 12px;
   margin: 0 auto;
+  background-color: red;
+
+  //푸터의 크기가 읽히지 않는 문제?
 
   .inner {
-    background-color: #eee;
     padding: 40px 5% 0;
     color: #666;
     position: absolute;
@@ -839,7 +837,7 @@ $site-width: 1200px;
           color: black;
         }
 
-        &:not(:nth-last-child(4), :last-child) {
+        &:not(:nth-child(10), :last-child) {
           &::after {
             content: "";
             display: inline-block;
