@@ -202,7 +202,7 @@ html > body {
   transform: translatex(-50%);
 }
 .content-wrap .main-banner-box .banner-con .background-img-color {
-  background-color: #ffef6b;
+  background-color: red;
   height: 639px;
   position: absolute;
   width: 100%;
