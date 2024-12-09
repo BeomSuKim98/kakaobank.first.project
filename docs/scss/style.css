@@ -815,6 +815,9 @@ html > body {
   background-color: #eee;
   padding: 40px 5% 0;
   color: #666;
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
 }
 .footerBox .inner .infoBox {
   padding: 20px 0 16px;
